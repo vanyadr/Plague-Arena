@@ -141,10 +141,14 @@ header {
       color 0.2s ease,
       transform 0.1s;
 }
-.header-nav__call:active {
+.header-nav__closer:active,
+.header-nav__burger:active,
+.header-nav__call:active,
+.header-nav__call-mobile:active {
    transform: scale(0.98);
 }
-.header-nav__call {
+.header-nav__call,
+.header-nav__call-mobile {
    font-size: 0.8rem;
    font-family: Geologica;
    color: var(--yellow);
@@ -153,6 +157,18 @@ header {
    padding: 0.8rem 2rem;
    backdrop-filter: blur(4px);
    background: rgba(248, 205, 84, 0.2);
+   transition: transform 0.1s;
+}
+.header-nav__call-mobile {
+   display: none;
+   text-align: center;
+}
+.header-nav__closer {
+   display: none;
+   transition: transform 0.1s;
+}
+.header-nav__burger {
+   display: none;
    transition: transform 0.1s;
 }
 @media (max-width: 1400px) {
@@ -186,10 +202,47 @@ header {
 }
 @media (max-width: 768px) {
    header {
-      padding: 1.2rem 0;
+      padding: 1.2rem 0.6rem;
+      display: flex;
+      justify-content: flex-end;
+   }
+   .header-nav__burger {
+      display: block;
+      background: none;
    }
    .header-nav {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 4rem 4rem 4rem 2rem;
+      background: var(--bg);
+      border-radius: 0.6rem 0 0 0.6rem;
+      height: 100vh;
+      align-items: flex-start;
+      transform: translate(100%, 0);
+      transition: transform 0.3s ease;
+   }
+   .header-nav.opened {
+      transform: translate(0, 0);
+   }
+   .header-nav__closer {
+      display: block;
+      position: absolute;
+      background: none;
+      width: 1.2rem;
+      height: 1.2rem;
+      top: 1.2rem;
+      right: 0.6rem;
+   }
+   .header-nav__menu {
+      flex-direction: column;
+      gap: 1.6rem;
+   }
+   .header-nav__call {
       display: none;
+   }
+   .header-nav__call-mobile {
+      display: block;
    }
 }
 
@@ -233,6 +286,11 @@ header {
    left: 50%;
    transform: translate(-50%, 0);
    display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+.front__sub-block {
+   display: flex;
    gap: 10rem;
    align-items: flex-start;
 }
@@ -253,8 +311,10 @@ header {
    }
 }
 @media (max-width: 768px) {
+   .front__sub-block {
+      gap: 6rem;
+   }
    .front_subtitles {
       top: 60%;
-      gap: 6rem;
    }
 }
