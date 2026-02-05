@@ -318,3 +318,110 @@ header {
       top: 60%;
    }
 }
+
+/* Блок Пространство */
+.place {
+}
+.title {
+   font-size: 1rem;
+   text-transform: uppercase;
+   text-align: center;
+   color: var(--grey);
+}
+.place__delimiter {
+   height: 5rem;
+   margin: 0.4rem 0;
+}
+.place__main-title {
+   font-weight: 600;
+   font-size: 1.4rem;
+   line-height: 170%;
+   letter-spacing: -0.01em;
+   text-transform: uppercase;
+   text-align: center;
+   padding: 0 22rem;
+   margin-bottom: 2rem;
+}
+.place__main-title span.yellow {
+   color: var(--yellow);
+}
+.place__grid {
+   display: grid;
+   grid-template-columns: repeat(6, 1fr);
+   gap: 1rem;
+}
+.place__img {
+   aspect-ratio: 1 / 1;
+   border-radius: 0.6rem;
+   overflow: hidden;
+}
+.place__img > img {
+   object-fit: cover;
+}
+.place__text {
+   font-size: 1rem;
+   display: flex;
+   align-items: flex-end;
+}
+@media (max-width: 1800px) {
+   .place__delimiter {
+      height: 5rem;
+      margin: 0.4rem 0;
+   }
+   .place__main-title {
+      padding: 0 12rem;
+   }
+   .place__grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+   }
+   .place__text {
+      font-size: 0.8rem;
+   }
+}
+@media (max-width: 1400px) {
+   .place__main-title {
+      font-size: 1.2rem;
+      padding: 0 4rem;
+      margin-bottom: 3rem;
+   }
+   .place__text {
+      font-size: 0.7rem;
+      grid-column: 4 / 6;
+   }
+}
+@media (max-width: 1024px) {
+   .place__delimiter {
+      height: 3rem;
+      margin: 0.4rem 0;
+   }
+   .place__main-title {
+      font-size: 1.2rem;
+      padding: 0;
+      margin-bottom: 2rem;
+   }
+   .place__grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.8rem;
+   }
+   .place__text {
+      font-size: 0.6rem;
+      grid-column: 4 / -1;
+   }
+}
+@media (max-width: 768px) {
+   .place__main-title {
+      font-size: 0.8rem;
+   }
+   .place__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+   }
+   .place__img {
+      aspect-ratio: 1 / 1.5;
+   }
+   .place__text {
+      margin-top: 0.8rem;
+      grid-column: 2 / -1;
+   }
+}
