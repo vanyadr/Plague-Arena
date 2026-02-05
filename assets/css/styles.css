@@ -107,6 +107,9 @@ svg {
    width: 100%;
    height: auto;
 }
+.yellow {
+   color: var(--yellow);
+}
 
 /* Шапка */
 header {
@@ -144,10 +147,12 @@ header {
 .header-nav__closer:active,
 .header-nav__burger:active,
 .header-nav__call:active,
-.header-nav__call-mobile:active {
+.header-nav__call-mobile:active,
+.btn:active {
    transform: scale(0.98);
 }
 .header-nav__call,
+.btn,
 .header-nav__call-mobile {
    font-size: 0.8rem;
    font-family: Geologica;
@@ -157,6 +162,8 @@ header {
    padding: 0.8rem 2rem;
    backdrop-filter: blur(4px);
    background: rgba(248, 205, 84, 0.2);
+   display: block;
+   width: fit-content;
    transition: transform 0.1s;
 }
 .header-nav__call-mobile {
@@ -178,7 +185,9 @@ header {
    .header-nav__menu-item {
       font-size: 0.7rem;
    }
-   .header-nav__call {
+   .header-nav__call,
+   .btn,
+   .header-nav__call-mobile {
       font-size: 0.7rem;
       padding: 0.6rem 1.2rem;
    }
@@ -193,7 +202,9 @@ header {
    .header-nav__menu-item {
       font-size: 0.6rem;
    }
-   .header-nav__call {
+   .header-nav__call,
+   .btn,
+   .header-nav__call-mobile {
       font-size: 0.6rem;
    }
    .header-nav__menu-item:hover {
@@ -320,8 +331,6 @@ header {
 }
 
 /* Блок Пространство */
-.place {
-}
 .title {
    font-size: 1rem;
    text-transform: uppercase;
@@ -360,6 +369,7 @@ header {
 }
 .place__text {
    font-size: 1rem;
+   line-height: 140%;
    display: flex;
    align-items: flex-end;
 }
@@ -423,5 +433,157 @@ header {
    .place__text {
       margin-top: 0.8rem;
       grid-column: 2 / -1;
+   }
+}
+
+/* Блок Тап-лист и Меню */
+.menu-title {
+   font-size: 20rem;
+   line-height: 70%;
+   text-transform: uppercase;
+   margin-bottom: 4rem;
+   margin-left: -0.7rem;
+}
+.menu-grid {
+   display: grid;
+   grid-template-columns: repeat(6, 1fr);
+}
+.menu-block {
+   grid-column: 4 / 6;
+}
+.menu-text {
+   font-size: 1rem;
+   line-height: 140%;
+   margin-bottom: 1.2rem;
+}
+.menu .menu-title {
+   margin-left: -1.7rem;
+   color: var(--grey);
+}
+.menu .menu-block {
+   grid-column: 1 / 3;
+}
+.menu .menu-grid {
+   grid-template-columns: repeat(8, 1fr);
+}
+.menu-btn-block {
+   margin-bottom: 1.2rem;
+   display: flex;
+   gap: 1.2rem;
+}
+.menu .menu-text {
+   margin-bottom: 0;
+   padding-right: 2rem;
+}
+.menu .btn {
+   color: var(--white);
+   border-color: var(--white);
+   background: rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 1800px) {
+   .menu-title {
+      font-size: 15rem;
+      margin-bottom: 3.5rem;
+      margin-left: -0.4rem;
+   }
+   .menu-text {
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
+   }
+   .menu .menu-title {
+      margin-left: -1.4rem;
+   }
+   .menu .menu-block {
+      grid-column: 1 / 4;
+   }
+   .menu .menu-text {
+      padding-right: 10rem;
+   }
+}
+@media (max-width: 1400px) {
+   .menu-title {
+      font-size: 11rem;
+      margin-bottom: 3rem;
+      margin-left: -0.3rem;
+   }
+   .menu-grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .menu-block {
+      grid-column: 2 / -1;
+   }
+   .menu-text {
+      font-size: 0.7rem;
+   }
+   .menu .menu-title {
+      margin-left: -1rem;
+   }
+   .menu .menu-block {
+      grid-column: 1 / 2;
+   }
+   .menu .menu-grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .menu .menu-text {
+      padding-right: 10rem;
+   }
+}
+@media (max-width: 1024px) {
+   .menu-title {
+      font-size: 8.5rem;
+   }
+   .menu-grid {
+      grid-template-columns: repeat(6, 1fr);
+   }
+   .menu-block {
+      grid-column: 4 / -1;
+   }
+   .menu-text {
+      font-size: 0.6rem;
+      margin-bottom: 1.2rem;
+   }
+   .menu .menu-title {
+      margin-left: -0.9rem;
+   }
+   .menu .menu-block {
+      grid-column: 1 / 2;
+   }
+   .menu .menu-grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .menu .menu-text {
+      padding-right: 7rem;
+   }
+}
+@media (max-width: 768px) {
+   .menu-title {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      margin-left: 0;
+   }
+   .menu-grid {
+      display: block;
+   }
+   .menu-text {
+      font-size: 0.6rem;
+      margin-bottom: 0.8rem;
+   }
+   .menu .menu-title {
+      margin-left: 0;
+   }
+   .menu .menu-grid {
+      display: block;
+   }
+   .menu-btn-block {
+      margin-bottom: 0.8rem;
+      gap: 0.8rem;
+   }
+   .menu .menu-text {
+      padding-right: 2rem;
+   }
+   .menu-grid .btn {
+      width: 100%;
+      text-align: center;
+      flex: 1;
    }
 }
