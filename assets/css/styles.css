@@ -871,3 +871,108 @@ header {
       display: none;
    }
 }
+
+/* Блок Карта лояльности */
+.card .title {
+   margin-bottom: 3rem;
+}
+.card__grid {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   gap: 1rem;
+   align-items: center;
+}
+.card__info {
+   grid-column: 1 / 6;
+}
+.card__text {
+   font-weight: 500;
+   font-size: 4rem;
+   color: var(--grey);
+   margin-bottom: 2rem;
+}
+.card__link {
+   font-weight: 500;
+   font-size: 1rem;
+   text-transform: uppercase;
+   text-decoration: underline;
+   color: var(--grey);
+   opacity: 0.8;
+   text-underline-offset: 4px;
+}
+.card__link-item {
+   color: #e66300;
+   line-height: 100%;
+   font-size: 1.4rem;
+}
+.card__img {
+   grid-column: 8 / 11;
+}
+@media (max-width: 1800px) {
+   .card__text {
+      font-size: 2.9rem;
+   }
+   .card__link {
+      font-size: 0.8rem;
+   }
+}
+@media (max-width: 1400px) {
+   .card .title {
+      margin-bottom: 2rem;
+   }
+   .card__info {
+      grid-column: 1 / 7;
+   }
+   .card__text {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+   }
+   .card__link {
+      font-size: 0.7rem;
+   }
+   .card__link-item {
+      font-size: 1.2rem;
+   }
+   .card__img {
+      grid-column: 8 / 12;
+      padding: 0 1rem;
+   }
+}
+@media (max-width: 1024px) {
+   .card__grid {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.4rem;
+   }
+   .card__info {
+      grid-column: 1 / 5;
+   }
+   .card__text {
+      font-size: 1.9rem;
+   }
+   .card__img {
+      grid-column: 6 / 8;
+      padding: 0 1rem;
+   }
+}
+@media (max-width: 768px) {
+   .card__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4rem;
+   }
+   .card__info {
+      grid-column: 1 / 3;
+   }
+   .card__text {
+      font-size: 0.8rem;
+   }
+   .card__link {
+      font-size: 0.4rem;
+   }
+   .card__link-item {
+      font-size: 0.6rem;
+   }
+   .card__img {
+      grid-column: 3 / -1;
+      padding: 0 0 0 2rem;
+   }
+}
