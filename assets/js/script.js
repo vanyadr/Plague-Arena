@@ -57,33 +57,31 @@ const initSliderMenu = () => {
 };
 const initSliderEvents = () => {
    const swiper = new Swiper(".swiper-events", {
-      modules: [Navigation, Autoplay],
-      slidesPerView: 2,
+      modules: [Navigation],
+      slidesPerView: 1,
       speed: 400,
-      spaceBetween: 16,
-      autoplay: {
-         delay: 3000,
-         pauseOnMouseEnter: true,
-      },
+      spaceBetween: 12,
       navigation: {
          nextEl: ".swiper-button-next",
          prevEl: ".swiper-button-prev",
       },
       breakpoints: {
          769: {
-            slidesPerView: 3.3,
-            spaceBetween: 16,
+            slidesPerView: 2,
+            spaceBetween: 12,
          },
          1025: {
-            slidesPerView: 4,
+            slidesPerView: 3,
+            spaceBetween: 24,
+         },
+         1401: {
+            slidesPerView: 3,
             spaceBetween: 24,
          },
          1801: {
-            slidesPerView: 5.5,
+            slidesPerView: 4,
             spaceBetween: 24,
          },
       },
-      loop: true,
-      centeredSlides: true,
    });
 };
