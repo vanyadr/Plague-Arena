@@ -53,6 +53,7 @@ body {
    color: var(--white);
    font-family: "Geologica";
    scrollbar-gutter: stable;
+   height: 100%;
 }
 .container {
    max-width: 86rem;
@@ -98,7 +99,7 @@ body {
       margin-bottom: 7rem;
    }
 }
-main {
+section {
    overflow: hidden;
 }
 img {
@@ -118,6 +119,13 @@ svg {
 }
 .swiper-wrapper {
    z-index: 0;
+}
+#tap,
+#menu,
+#events,
+#serts,
+#card {
+   scroll-margin-top: 5rem;
 }
 
 /* Шапка */
@@ -278,11 +286,10 @@ header {
 .front {
    position: relative;
    width: 100%;
-   height: 100vh;
+   min-height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
-   overflow: hidden;
 }
 .front__bg-alfa {
    position: absolute;
@@ -626,6 +633,9 @@ header {
 }
 
 /* Блок События */
+.events {
+   overflow: visible;
+}
 .events .title {
    margin-bottom: 3rem;
 }
