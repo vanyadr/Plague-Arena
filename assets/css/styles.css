@@ -99,7 +99,7 @@ body {
       margin-bottom: 7rem;
    }
 }
-section {
+.wrapper {
    overflow: hidden;
 }
 img {
@@ -128,6 +128,56 @@ svg {
    scroll-margin-top: 5rem;
 }
 
+/* Анимации */
+@keyframes appearHeader {
+   from {
+      transform: translateY(-100%);
+      background: rgba(0, 0, 0, 0);
+   }
+   to {
+      transform: translateY(0);
+      background: rgba(0, 0, 0, 0.5);
+   }
+}
+@keyframes appearLogo {
+   from {
+      transform: scale(1.4);
+      opacity: 0;
+   }
+   to {
+      transform: scale(1);
+      opacity: 1;
+   }
+}
+@keyframes appearSub {
+   from {
+      transform: translate(-50%, 0) scale(1.4);
+      opacity: 0;
+   }
+   to {
+      transform: translate(-50%, 0) scale(1);
+      opacity: 1;
+   }
+}
+@keyframes delimiter {
+   from {
+      height: 0;
+   }
+   to {
+      height: 5rem;
+   }
+}
+@media (max-width: 1024px) {
+   @keyframes delimiter {
+      from {
+         height: 0;
+      }
+      to {
+         height: 3rem;
+      }
+   }
+}
+
 /* Шапка */
 header {
    position: fixed;
@@ -136,7 +186,9 @@ header {
    width: 100%;
    padding: 0.6rem 0;
    z-index: 1;
-   background: rgba(0, 0, 0, 0.5);
+   background: rgba(0, 0, 0, 0);
+   transform: translateY(-100%);
+   animation: appearHeader 0.5s ease 0.2s forwards;
 }
 .header-nav {
    display: flex;
@@ -314,15 +366,20 @@ header {
 }
 .front__logo {
    width: 10rem;
+   transform: scale(1.4);
+   opacity: 0;
+   animation: appearLogo 0.5s ease 0.7s forwards;
 }
 .front_subtitles {
    position: absolute;
    top: 60%;
    left: 50%;
-   transform: translate(-50%, 0);
+   transform: translate(-50%, 0) scale(1.4);
    display: flex;
    flex-direction: column;
    gap: 2rem;
+   opacity: 0;
+   animation: appearSub 0.5s ease 0.7s forwards;
 }
 .front__sub-block {
    display: flex;
@@ -365,6 +422,9 @@ header {
    height: 5rem;
    margin: 0.4rem 0;
 }
+.place__delimiter.animate {
+   animation: delimiter 0.5s ease forwards;
+}
 .place__main-title {
    font-weight: 600;
    font-size: 1.4rem;
@@ -399,7 +459,6 @@ header {
 }
 @media (max-width: 1800px) {
    .place__delimiter {
-      height: 5rem;
       margin: 0.4rem 0;
    }
    .place__main-title {
@@ -633,9 +692,6 @@ header {
 }
 
 /* Блок События */
-.events {
-   overflow: visible;
-}
 .events .title {
    margin-bottom: 3rem;
 }

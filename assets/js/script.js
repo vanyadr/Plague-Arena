@@ -85,3 +85,22 @@ const initSliderEvents = () => {
       },
    });
 };
+const animate = () => {
+   const observer = new IntersectionObserver(
+      (entries) => {
+         entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+               entry.target.classList.add("animate");
+            }
+         });
+      },
+      {
+         threshold: 1,
+         rootMargin: "0px 0px -300px 0px",
+      },
+   );
+
+   document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      observer.observe(el);
+   });
+};
