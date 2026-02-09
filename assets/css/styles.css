@@ -186,7 +186,9 @@ header {
    width: 100%;
    padding: 0.6rem 0;
    z-index: 1;
-   background: rgba(0, 0, 0, 0.5);
+   background: rgba(0, 0, 0, 0);
+   transform: translateY(-100%);
+   animation: appearHeader 0.5s ease 0.2s forwards;
 }
 .header-nav {
    display: flex;
@@ -211,8 +213,6 @@ header {
       color 0.2s ease,
       transform 0.1s;
 }
-.header-nav__closer:active,
-.header-nav__burger:active,
 .header-nav__call:active,
 .header-nav__call-mobile:active,
 .btn:active {
@@ -245,7 +245,6 @@ header {
 }
 .header-nav__burger {
    display: none;
-   transition: transform 0.1s;
 }
 @media (max-width: 1400px) {
    .header-nav__menu {
@@ -289,6 +288,8 @@ header {
    }
    .header-nav__burger {
       display: block;
+      width: 1.2rem;
+      height: 1.2rem;
       background: none;
    }
    .header-nav {
