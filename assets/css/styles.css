@@ -162,7 +162,8 @@ header {
 }
 .header-nav__call,
 .btn,
-.header-nav__call-mobile {
+.header-nav__call-mobile,
+.location__call {
    font-size: 0.8rem;
    font-family: Geologica;
    color: var(--yellow);
@@ -178,6 +179,7 @@ header {
 .header-nav__call-mobile {
    display: none;
    text-align: center;
+   width: 100%;
 }
 .header-nav__closer {
    display: none;
@@ -213,7 +215,8 @@ header {
    }
    .header-nav__call,
    .btn,
-   .header-nav__call-mobile {
+   .header-nav__call-mobile,
+   .location__call {
       font-size: 0.6rem;
    }
    .header-nav__menu-item:hover {
@@ -1006,6 +1009,12 @@ header {
    top: 38%;
    transform: rotate(-3.5deg) translate(-50%, 0);
 }
+.location__call {
+   grid-column: 11 / -1;
+   height: fit-content;
+   width: 100%;
+   text-align: center;
+}
 @media (max-width: 1800px) {
    .location__text {
       font-size: 4.5rem;
@@ -1019,6 +1028,9 @@ header {
    }
    .location__line.line-2 {
       top: 32%;
+   }
+   .location__call {
+      grid-column: 10 / -1;
    }
 }
 @media (max-width: 1400px) {
@@ -1049,10 +1061,13 @@ header {
       height: 1.5rem;
    }
    .location__line.line-1 {
-      top: 185%;
+      top: 155%;
    }
    .location__line.line-2 {
-      top: 38%;
+      top: 32%;
+   }
+   .location__call {
+      grid-column: 1 / -1;
    }
 }
 @media (max-width: 768px) {
@@ -1065,12 +1080,165 @@ header {
       grid-column: 1 / -1;
    }
    .location__line img {
-      height: 1.3rem;
+      height: 1rem;
    }
    .location__line.line-1 {
-      top: 245%;
+      top: 147%;
    }
    .location__line.line-2 {
-      top: 50%;
+      top: 27%;
+   }
+}
+
+/* Футер */
+footer {
+   background: rgba(203, 203, 204, 0.1);
+   padding: 4rem 0 2rem;
+}
+.footer {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   gap: 1rem;
+   row-gap: 3rem;
+   position: relative;
+}
+.footer__info {
+   grid-column: 1 / 7;
+}
+.footer__phone a {
+   font-size: 1.2rem;
+}
+.footer__phone {
+   margin-bottom: 1.2rem;
+}
+.footer__social {
+   display: flex;
+   gap: 0.8rem;
+   align-items: center;
+   margin-bottom: 3rem;
+}
+.footer__social div {
+   width: 1.2rem;
+   height: 1.2rem;
+}
+.footer__social a {
+   font-size: 1.2rem;
+}
+.footer__time {
+   font-size: 1.2rem;
+   line-height: 160%;
+}
+.footer__map {
+   grid-column: 7 / -1;
+}
+.footer__adress {
+   margin-bottom: 2rem;
+}
+.footer__adress a {
+   font-size: 1.2rem;
+}
+.footer__y-map {
+   border-radius: 0.6rem;
+   overflow: hidden;
+}
+.footer__y-map div {
+   height: 20rem;
+}
+.footer__sub {
+   grid-column: 1 / -1;
+   display: flex;
+   justify-content: space-between;
+}
+.footer__doc {
+   font-size: 0.8rem;
+   opacity: 0.6;
+}
+@media (max-width: 1800px) {
+   footer {
+      padding: 3.5rem 0 0.8rem;
+   }
+   .footer__map {
+      grid-column: 8 / -1;
+   }
+   .footer__y-map div {
+      height: 15rem;
+   }
+}
+@media (max-width: 1400px) {
+   footer {
+      padding: 2rem 0 2rem;
+   }
+   .footer__y-map div {
+      height: 12rem;
+   }
+   .footer__info {
+      grid-column: 1 / 6;
+   }
+   .footer__phone a {
+      font-size: 0.8rem;
+   }
+   .footer__social div {
+      width: 1rem;
+      height: 1rem;
+   }
+   .footer__social a {
+      font-size: 0.8rem;
+   }
+   .footer__time {
+      font-size: 0.8rem;
+   }
+   .footer__map {
+      grid-column: 6 / -1;
+   }
+   .footer__adress a {
+      font-size: 0.8rem;
+   }
+   .footer__doc {
+      font-size: 0.6rem;
+   }
+}
+@media (max-width: 1024px) {
+   .footer__info {
+      grid-column: 1 / 4;
+   }
+   .footer__map {
+      grid-column: 4 / -1;
+   }
+   .footer {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.4rem;
+      row-gap: 3rem;
+   }
+   .footer__phone {
+      margin-bottom: 0.8rem;
+   }
+   .footer__adress {
+      margin-bottom: 0.8rem;
+   }
+   .footer__doc {
+      font-size: 0.5rem;
+   }
+   .footer__y-map div {
+      height: 10rem;
+   }
+}
+@media (max-width: 768px) {
+   .footer__info {
+      grid-column: 1 / -1;
+   }
+   .footer__social {
+      margin-bottom: 1.2rem;
+   }
+   .footer__map {
+      grid-column: 1 / -1;
+   }
+   .footer__sub {
+      flex-direction: column;
+      gap: 0.4rem;
+   }
+   .footer {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4rem;
+      row-gap: 2rem;
    }
 }
