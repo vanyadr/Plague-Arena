@@ -1308,3 +1308,106 @@ footer {
       row-gap: 2rem;
    }
 }
+
+/* Полноэкранный слайдер */
+.clickable {
+   cursor: pointer;
+}
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   background: rgba(0, 0, 0, 0.8);
+   display: none;
+}
+.modal.active {
+   display: flex;
+}
+.modal__container {
+   width: 96%;
+   height: 96%;
+}
+.modal__closer {
+   display: block;
+   position: absolute;
+   background: none;
+   width: 2.4rem;
+   height: 2.4rem;
+   top: 2rem;
+   right: 0;
+   transform: translate(-100%, 0);
+}
+.modal__container .modal__btn.swiper-button-prev,
+.modal__container .modal__btn.swiper-button-next {
+   position: absolute;
+   top: 50%;
+   cursor: pointer;
+   display: block;
+   width: 2.4rem;
+   height: 2.4rem;
+   padding: 0.6rem;
+   border-radius: 50%;
+   -webkit-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.4);
+   -moz-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.4);
+   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.4);
+   background: var(--yellow);
+   margin: 0;
+   z-index: 0;
+}
+.modal__btn .swiper-navigation-icon {
+   display: none;
+}
+.modal__container .modal__btn.swiper-button-next {
+   left: auto;
+   right: 0;
+   transform: translate(-100%, -50%);
+}
+.modal__container .modal__btn.swiper-button-prev {
+   right: auto;
+   left: 0;
+   transform: translate(100%, -50%);
+}
+.modal__container .modal__btn.swiper-button-prev img {
+   transform: rotate(180deg);
+}
+.modal__container .modal__btn.swiper-button-next.swiper-button-disabled,
+.modal__container .modal__btn.swiper-button-prev.swiper-button-disabled {
+   opacity: 1;
+   background: rgba(203, 203, 204, 0.5);
+}
+@media (max-width: 1400px) {
+   .modal__container .modal__btn.swiper-button-prev,
+   .modal__container .modal__btn.swiper-button-next {
+      width: 2rem;
+      height: 2rem;
+      padding: 0.4rem;
+   }
+   .modal__closer {
+      width: 2rem;
+      height: 2rem;
+   }
+}
+@media (max-width: 1024px) {
+   .modal__container .modal__btn.swiper-button-prev,
+   .modal__container .modal__btn.swiper-button-next {
+      width: 1.6rem;
+      height: 1.6rem;
+      transform: translate(0, -50%);
+   }
+   .modal__closer {
+      width: 1.6rem;
+      height: 1.6rem;
+      transform: translate(0, -50%);
+   }
+}
+.swiper-modal {
+   height: 100%;
+}
+.modal__container .swiper-slide img {
+   object-fit: contain;
+}

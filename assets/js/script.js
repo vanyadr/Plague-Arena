@@ -6,12 +6,17 @@ import Autoplay from "../libraries/swiper/modules/autoplay.min.mjs";
 const burger = document.querySelector(".header-nav__burger");
 const closer = document.querySelector(".header-nav__closer");
 const menu = document.querySelector(".header-nav");
+const slidesToClick = document.querySelectorAll(".swiper-slide.clickable");
+const modal = document.querySelector(".modal");
+const modalCloser = document.querySelector(".modal__closer");
 
 // Start scrips on DOM load
 document.addEventListener("DOMContentLoaded", () => {
    toggleBurger(burger, closer);
    initSliderMenu();
    initSliderEvents();
+   const modalSlider = initSliderModal();
+   toggleModalSlider(modalSlider, modal, slidesToClick, modalCloser);
 });
 
 //Functions
@@ -62,8 +67,8 @@ const initSliderEvents = () => {
       speed: 400,
       spaceBetween: 12,
       navigation: {
-         nextEl: ".swiper-button-next",
-         prevEl: ".swiper-button-prev",
+         nextEl: ".events__btn.swiper-button-next",
+         prevEl: ".events__btn.swiper-button-prev",
       },
       breakpoints: {
          769: {
@@ -83,6 +88,32 @@ const initSliderEvents = () => {
             spaceBetween: 24,
          },
       },
+   });
+};
+const initSliderModal = () => {
+   const swiper = new Swiper(".swiper-modal", {
+      modules: [Navigation],
+      slidesPerView: 1,
+      speed: 400,
+      spaceBetween: 12,
+      centeredSlides: true,
+      navigation: {
+         nextEl: ".modal__btn.swiper-button-next",
+         prevEl: ".modal__btn.swiper-button-prev",
+      },
+   });
+
+   return swiper;
+};
+const toggleModalSlider = (slider, modal, slidesToClick, closer) => {
+   slidesToClick.forEach((slide) => {
+      slide.addEventListener("click", (event) => {
+         slider.slideTo(parseInt(event.currentTarget.dataset.swiperSlideIndex), 0, false);
+         modal.classList.add("active");
+      });
+   });
+   closer.addEventListener("click", () => {
+      modal.classList.remove("active");
    });
 };
 const animate = () => {
