@@ -160,6 +160,22 @@ svg {
       opacity: 1;
    }
 }
+@keyframes appear {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+@keyframes disappear {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
+}
 @keyframes delimiter {
    from {
       height: 0;
@@ -1327,6 +1343,10 @@ footer {
 }
 .modal.active {
    display: flex;
+   animation: appear 0.3s ease;
+}
+.modal.disappear {
+   animation: disappear 0.3s ease;
 }
 .modal__container {
    width: 96%;

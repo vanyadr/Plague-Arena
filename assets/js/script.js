@@ -109,11 +109,18 @@ const toggleModalSlider = (slider, modal, slidesToClick, closer) => {
    slidesToClick.forEach((slide) => {
       slide.addEventListener("click", (event) => {
          slider.slideTo(parseInt(event.currentTarget.dataset.swiperSlideIndex), 0, false);
+         modal.classList.remove("disappear");
          modal.classList.add("active");
       });
    });
    closer.addEventListener("click", () => {
       modal.classList.remove("active");
+      modal.classList.add("disappear");
+      modal.style.display = "flex";
+
+      modal.addEventListener("animationend", () => {
+         modal.style.display = "";
+      });
    });
 };
 const animate = () => {
