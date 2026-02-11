@@ -4,7 +4,6 @@ import Autoplay from "../libraries/swiper/modules/autoplay.min.mjs";
 
 // Get elements from DOM
 const burger = document.querySelector(".header-nav__burger");
-const closer = document.querySelector(".header-nav__closer");
 const menu = document.querySelector(".header-nav");
 const slidesToClick = document.querySelectorAll(".swiper-slide.clickable");
 const modal = document.querySelector(".modal");
@@ -12,7 +11,7 @@ const modalCloser = document.querySelector(".modal__closer");
 
 // Start scrips on DOM load
 document.addEventListener("DOMContentLoaded", () => {
-   toggleBurger(burger, closer);
+   toggleBurger(burger);
    initSliderMenu();
    initSliderEvents();
    const modalSlider = initSliderModal();
@@ -20,13 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Functions
-const toggleBurger = (openEl, closeEl) => {
-   openEl.addEventListener("click", () => {
+const toggleBurger = (openEl) => {
+   openEl.addEventListener("click", (e) => {
+      e.stopPropagation();
+
       menu.classList.add("opened");
+      document.body.addEventListener("click", closeByOverlay);
    });
-   closeEl.addEventListener("click", () => {
-      menu.classList.remove("opened");
-   });
+   
+   const closeByOverlay = (event) => {
+      if (event.target !== menu) {
+         menu.classList.remove("opened");
+         document.body.removeEventListener("click", closeByOverlay);
+      }
+   }
 };
 const initSliderMenu = () => {
    const swiper = new Swiper(".swiper-menu", {

@@ -9,7 +9,7 @@ get_header();
 <main>
    <section class="front section">
       <div class="front__bg">
-         <img src="<?php echo get_template_directory_uri() ?>/assets/images/bg.png" alt="Фоновое изображение">
+         <img src="<?php echo get_field('bg_photo') ?>" alt="Фоновое изображение">
       </div>
       <div class="front__bg-alfa"></div>
       <div class="front__logo">
@@ -24,7 +24,7 @@ get_header();
                <img src="<?php echo get_template_directory_uri() ?>/assets/images/sub2.svg" alt="Дескриптор">
             </div>
          </div>
-         <a href="tel:" class="header-nav__call-mobile">Позвонить в бар</a>
+         <a href="tel:<?php echo get_field('phone', 'option') ?>" class="header-nav__call-mobile"><?php echo get_field('button', 'option') ?></a>
       </div>
    </section>
    <section class="place section container">
@@ -33,24 +33,27 @@ get_header();
          <img src="<?php echo get_template_directory_uri() ?>/assets/images/verticalDelimiter.svg" alt="">
       </div>
       <h1 class="place__main-title">
-         <span class="yellow">Plague Arena</span> — бар крафтовых премьер и тапрум пивоварни Plague Brew. <span
-            class="yellow">40 кранов пива</span>, открытая кухня и
-         стритфуд со всего мира.
+         <?php echo get_field('block_1_text1') ?>
       </h1>
       <div class="place__grid">
-         <div class="place__img">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Фото бара">
-         </div>
-         <div class="place__img">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Фото бара">
-         </div>
-         <div class="place__img">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Фото бара">
-         </div>
+
+         <?php 
+            if( have_rows('block_1_photos') ): 
+               while( have_rows('block_1_photos') ): the_row(); 
+                  $img = get_sub_field('block_1_img');
+         ?>
+
+                  <div class="place__img">
+                     <img src="<?php echo $img ?>" alt="Фото бара">
+                  </div>
+
+         <?php 
+               endwhile;
+            endif; 
+         ?>
+
          <p class="place__text">
-            Интерьер в стиле постапокалипсис-индастриал, сводчатые потолки и самая длинная контактная барная
-            стойка
-            в Петербурге.
+            <?php echo get_field('block_1_text2') ?>
          </p>
       </div>
    </section>
@@ -59,13 +62,9 @@ get_header();
       <div class="menu-grid">
          <div class="menu-block">
             <p class="menu-text yellow">
-               Как и уличный корнер, где рождается кулинарный шедевр, наша пивоварня — это
-               место экспериментов без границ. Потому что у них — общая душа.
-               У каждого великого путешествия должен быть верный спутник. Таким спутником для нашего тап-листа
-               стал
-               стритфуд
+               <?php echo get_field('tap_text') ?>
             </p>
-            <a href="tel:" class="btn">Открыть тап-лист</a>
+            <a target="_blank" href="<?php echo get_field('tap_link') ?>" class="btn">Открыть тап-лист</a>
          </div>
       </div>
    </section>
@@ -74,156 +73,84 @@ get_header();
       <div class="menu-grid">
          <div class="menu-block">
             <div class="menu-btn-block">
-               <a href="tel:" class="btn">Основное меню</a>
-               <a href="tel:" class="btn">Барное меню</a>
+               <a target="_blank" href="<?php echo get_field('menu_menufile') ?>" class="btn">Основное меню</a>
+               <a target="_blank" href="<?php echo get_field('menu_barfile') ?>" class="btn">Барное меню</a>
             </div>
             <p class="menu-text">
-               Наш стритфуд уникален своим многообразием, собран со всех уголков мира.
+               <?php echo get_field('menu_text') ?>
             </p>
          </div>
       </div>
-      <div class="swiper-menu">
-         <div class="swiper-wrapper">
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-            </div>
-            <div class="swiper-slide clickable">
-               <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
+
+      <?php 
+         if( have_rows('menu_carousel') ): 
+      ?>
+         <div class="swiper-menu">
+            <div class="swiper-wrapper">
+      <?php
+            while( have_rows('menu_carousel') ): the_row(); 
+               $img = get_sub_field('image');
+      ?>
+
+               <div class="swiper-slide clickable">
+                  <img src="<?php echo $img ?>" alt="Фото бара">
+               </div>
+
+      <?php 
+            endwhile;
+      ?>
             </div>
          </div>
-      </div>
+      <?php
+         endif; 
+      ?>
+
    </section>
    <section class="events section container" id="events">
       <h2 class="title">Ближайшие события</h2>
       <div class="events__slider">
-         <div class="swiper-events">
-            <div class="swiper-wrapper">
-               <div class="swiper-slide">
-                  <div class="events__slide-holder">
-                     <div class="events__img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-                     </div>
-                     <div class="events__content">
-                        <h4 class="events__name">AA Fest — фестиваль крафтового пива</h4>
-                        <p class="events__description">AA FEST - ежегодный праздник для всех ценителей крафтовых
-                           напитков в Санкт-Петербурге. Насладитесь безлимитными напитками, вкусной едой и
-                           шоу-программой.</p>
-                        <div class="events__footer">
-                           <span class="events__date">18.09.2026</span>
-                           <a href="" class="events__link">Подробнее</a>
+
+         <?php 
+            if( have_rows('events') ): 
+         ?>
+            <div class="swiper-events">
+               <div class="swiper-wrapper">
+         <?php
+               while( have_rows('events') ): the_row(); 
+                  $img = get_sub_field('event_img');
+                  $name = get_sub_field('event_title');
+                  $descr = get_sub_field('event_descr');
+                  $date = get_sub_field('event_date');
+                  $link = get_sub_field('event_page');
+         ?>
+
+                  <div class="swiper-slide">
+                     <div class="events__slide-holder">
+                        <div class="events__img">
+                           <img src="<?php echo $img ?>" alt="Еда" />
+                        </div>
+                        <div class="events__content">
+                           <h4 class="events__name"><?php echo $name ?></h4>
+                           <p class="events__description">
+                              <?php echo $descr ?>
+                           </p>
+                           <div class="events__footer">
+                              <span class="events__date"><?php echo $date ?></span>
+                              <a target="_blank" href="<?php echo $link ?>" class="events__link">Подробнее</a>
+                           </div>
                         </div>
                      </div>
                   </div>
-               </div>
-               <div class="swiper-slide">
-                  <div class="events__slide-holder">
-                     <div class="events__img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-                     </div>
-                     <div class="events__content">
-                        <h4 class="events__name">AA Fest — фестиваль крафтового пива</h4>
-                        <p class="events__description">AA FEST - ежегодный праздник для всех ценителей крафтовых
-                           напитков в Санкт-Петербурге. Насладитесь безлимитными напитками, вкусной едой и
-                           шоу-программой.</p>
-                        <div class="events__footer">
-                           <span class="events__date">18.09.2026</span>
-                           <a href="" class="events__link">Подробнее</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="swiper-slide">
-                  <div class="events__slide-holder">
-                     <div class="events__img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-                     </div>
-                     <div class="events__content">
-                        <h4 class="events__name">AA Fest — фестиваль крафтового пива</h4>
-                        <p class="events__description">AA FEST - ежегодный праздник для всех ценителей крафтовых
-                           напитков в Санкт-Петербурге. Насладитесь безлимитными напитками, вкусной едой и
-                           шоу-программой.</p>
-                        <div class="events__footer">
-                           <span class="events__date">18.09.2026</span>
-                           <a href="" class="events__link">Подробнее</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="swiper-slide">
-                  <div class="events__slide-holder">
-                     <div class="events__img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-                     </div>
-                     <div class="events__content">
-                        <h4 class="events__name">AA Fest — фестиваль крафтового пива</h4>
-                        <p class="events__description">AA FEST - ежегодный праздник для всех ценителей крафтовых
-                           напитков в Санкт-Петербурге. Насладитесь безлимитными напитками, вкусной едой и
-                           шоу-программой.</p>
-                        <div class="events__footer">
-                           <span class="events__date">18.09.2026</span>
-                           <a href="" class="events__link">Подробнее</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="swiper-slide">
-                  <div class="events__slide-holder">
-                     <div class="events__img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-                     </div>
-                     <div class="events__content">
-                        <h4 class="events__name">AA Fest — фестиваль крафтового пива</h4>
-                        <p class="events__description">AA FEST - ежегодный праздник для всех ценителей крафтовых
-                           напитков в Санкт-Петербурге. Насладитесь безлимитными напитками, вкусной едой и
-                           шоу-программой.</p>
-                        <div class="events__footer">
-                           <span class="events__date">18.09.2026</span>
-                           <a href="" class="events__link">Подробнее</a>
-                        </div>
-                     </div>
-                  </div>
+
+         <?php 
+               endwhile;
+         ?>
                </div>
             </div>
-         </div>
+         <?php
+            endif; 
+         ?>
+
          <button type="button" class="events__btn swiper-button-prev">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/arrowChevron.svg" alt="Предыдущее">
          </button>
@@ -236,8 +163,7 @@ get_header();
       <h2 class="title">сертификат в бар</h2>
       <div class="sert__grid">
          <div class="sert__info">
-            <p class="sert__text">Подарочный сертификат Plague Arena — универсальный вариант для любителей пива.
-            </p>
+            <p class="sert__text"><?php echo get_field('sert') ?></p>
             <span>* Приобрести можно только офлайн в баре.</span>
             <div class="sert__info-img">
                <img src="<?php echo get_template_directory_uri() ?>/assets/images/sert.png" alt="Сертификат">
@@ -257,8 +183,8 @@ get_header();
       <h2 class="title">Карта лояльности</h2>
       <div class="card__grid">
          <div class="card__info">
-            <p class="card__text">Получайте баллы, оплачивайте ими до 30% счета.</p>
-            <a href="">
+            <p class="card__text"><?php echo get_field('card_text') ?></p>
+            <a target="_blank" href="<?php echo get_field('card_rules') ?>">
                <span class="card__link">Правила бонусной программы</span>
                <span class="card__link-item">*</span>
             </a>
@@ -278,71 +204,44 @@ get_header();
       <div class="location__line line-2">
          <img src="<?php echo get_template_directory_uri() ?>/assets/images/line.png" alt="">
       </div>
-      <a href="tel:" class="location__call">Позвонить в бар</a>
+      <a href="tel:<?php echo get_field('phone', 'option') ?>" class="location__call"><?php echo get_field('button', 'option') ?></a>
    </section>
 
-   <article class="modal">
-      <div class="modal__container">
-         <div class="swiper-modal">
-            <div class="swiper-wrapper">
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place1.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place2.jpg" alt="Еда" />
-               </div>
-               <div class="swiper-slide">
-                  <img src="<?php echo get_template_directory_uri() ?>/assets/images/place3.jpg" alt="Еда" />
+   <?php 
+      if( have_rows('menu_carousel') ): 
+   ?>
+      <article class="modal">
+         <div class="modal__container">
+            <div class="swiper-modal">
+               <div class="swiper-wrapper">
+                  <?php
+                        while( have_rows('menu_carousel') ): the_row(); 
+                           $img = get_sub_field('image');
+                  ?>
+
+                           <div class="swiper-slide">
+                              <img src="<?php echo $img ?>" alt="Фото бара">
+                           </div>
+
+                  <?php 
+                        endwhile;
+                  ?>
                </div>
             </div>
+            <button type="button" class="modal__closer">
+               <img src="<?php echo get_template_directory_uri() ?>/assets/images/closer.svg" alt="Закрыть">
+            </button>
+            <button type="button" class="modal__btn swiper-button-prev">
+               <img src="<?php echo get_template_directory_uri() ?>/assets/images/arrowChevron.svg" alt="Предыдущее">
+            </button>
+            <button type="button" class="modal__btn swiper-button-next">
+               <img src="<?php echo get_template_directory_uri() ?>/assets/images/arrowChevron.svg" alt="Следующее">
+            </button>
          </div>
-         <button type="button" class="modal__closer">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/closer.svg" alt="Закрыть">
-         </button>
-         <button type="button" class="modal__btn swiper-button-prev">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/arrowChevron.svg" alt="Предыдущее">
-         </button>
-         <button type="button" class="modal__btn swiper-button-next">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/arrowChevron.svg" alt="Следующее">
-         </button>
-      </div>
-   </article>
+      </article>
+   <?php
+      endif; 
+   ?>
 
 </main>
 

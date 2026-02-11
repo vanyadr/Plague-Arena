@@ -19,13 +19,13 @@
   <header>
       <div class="header-nav container">
         <nav class="header-nav__menu">
-            <a href="#tap" class="header-nav__menu-item">тап-лист</a>
-            <a href="#menu" class="header-nav__menu-item">меню</a>
-            <a href="#events" class="header-nav__menu-item">события</a>
-            <a href="#serts" class="header-nav__menu-item">сертификаты</a>
-            <a href="#card" class="header-nav__menu-item">карта гостя</a>
+            <a href="/#tap" class="header-nav__menu-item">тап-лист</a>
+            <a href="/#menu" class="header-nav__menu-item">меню</a>
+            <a href="/#events" class="header-nav__menu-item">события</a>
+            <a href="/#serts" class="header-nav__menu-item">сертификаты</a>
+            <a href="/#card" class="header-nav__menu-item">карта гостя</a>
         </nav>
-        <a href="tel:" class="header-nav__call">Позвонить в бар</a>
+        <a href="tel:<?php echo get_field('phone', 'option') ?>" class="header-nav__call"><?php echo get_field('button', 'option') ?></a>
         <button type="button" class="header-nav__closer">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/closer.svg" alt="Закрыть">
         </button>
