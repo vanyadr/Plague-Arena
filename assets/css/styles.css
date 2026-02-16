@@ -284,9 +284,6 @@ header {
    .header-nav__menu {
       gap: 1.2rem;
    }
-   .header-nav__menu-item {
-      font-size: 0.6rem;
-   }
    .header-nav__call,
    .btn,
    .header-nav__call-mobile,
@@ -765,8 +762,8 @@ header {
 }
 .events__img {
    border-radius: 0.4rem;
-   width: 5rem;
-   height: 7.5rem;
+   width: 7rem;
+   height: auto;
    overflow: hidden;
 }
 .events__content {
@@ -777,10 +774,12 @@ header {
 .events__name {
    font-weight: 500;
    font-size: 1rem;
+   line-height: 1.2;
 }
 .events__description {
-   font-size: 0.6rem;
+   font-size: 0.8rem;
    opacity: 0.6;
+   line-height: 1.2;
 }
 .events__footer {
    display: flex;
@@ -790,7 +789,8 @@ header {
 }
 .events__date,
 .events__link {
-   font-size: 0.6rem;
+   line-height: 1.2;
+   font-size: 0.8rem;
    color: var(--yellow);
    display: block;
 }
@@ -832,21 +832,20 @@ header {
       gap: 0.6rem;
    }
    .events__img {
-      width: 3.5rem;
-      height: 5rem;
+      width: 5rem;
    }
    .events__content {
       gap: 0.4rem;
    }
    .events__name {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
    }
    .events__description {
-      font-size: 0.4rem;
+      font-size: 0.6rem;
    }
    .events__date,
    .events__link {
-      font-size: 0.4rem;
+      font-size: 0.6rem;
    }
    .events__link {
       text-decoration: underline;
@@ -865,6 +864,29 @@ header {
    .events__slider .events__btn.swiper-button-next {
       width: 1.6rem;
       height: 1.6rem;
+   }
+}
+@media (max-width: 768px) {
+   .events__slide-holder {
+      grid-template-columns: 1fr;
+      padding: 0.6rem;
+   }
+   .events__content {
+      gap: 0.6rem;
+   }
+   .events__img {
+      width: 100%;
+      height: auto;
+   }
+   .events__name {
+      font-size: .8rem;
+      line-height: 1.2;
+   }
+   .events__description,
+   .events__date,
+   .events__link {
+      font-size: .6rem;
+      line-height: 1.2;
    }
 }
 
@@ -1224,7 +1246,7 @@ footer {
    overflow: hidden;
 }
 .footer__y-map div {
-   height: 20rem;
+   height: 19rem;
 }
 .footer__sub {
    grid-column: 1 / -1;

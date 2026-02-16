@@ -25,7 +25,7 @@
                      style="color:#eee;font-size:12px;position:absolute;top:14px;">Бар в Санкт‑Петербурге</a><a
                      href="https://yandex.ru/maps/2/saint-petersburg/category/pub/167978289740/?utm_medium=mapframe&utm_source=maps"
                      style="color:#eee;font-size:12px;position:absolute;top:28px;">Паб в Санкт‑Петербурге</a><iframe
-                     src="https://yandex.ru/map-widget/v1/?ll=30.365275%2C59.953425&mode=search&oid=188731093197&ol=biz&z=14.5"
+                     src="https://yandex.ru/map-widget/v1/?ll=30.365275%2C59.953425&mode=search&oid=188731093197&ol=biz&z=13.5"
                      width="100%" height="100%" frameborder="1" allowfullscreen="true"
                      style="position:relative;"></iframe></div>
             </div>

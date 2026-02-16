@@ -78,19 +78,19 @@ const initSliderEvents = () => {
       },
       breakpoints: {
          769: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 12,
          },
          1025: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 24,
          },
          1401: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 24,
          },
          1801: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 24,
          },
       },
