@@ -714,6 +714,9 @@ header {
 .events__slider {
    position: relative;
 }
+.events__slider .swiper-slide {
+   height: auto;
+}
 .events__slider .events__btn.swiper-button-prev,
 .events__slider .events__btn.swiper-button-next {
    position: absolute;
@@ -759,6 +762,7 @@ header {
    display: grid;
    grid-template-columns: auto 1fr;
    gap: 1rem;
+   height: 100%;
 }
 .events__img {
    border-radius: 0.4rem;

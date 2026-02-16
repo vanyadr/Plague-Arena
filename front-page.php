@@ -179,7 +179,8 @@ get_header();
          </div>
       </div>
    </section>
-   <section class="card section container" id="card">
+
+   <!-- <section class="card section container" id="card">
       <h2 class="title">Карта лояльности</h2>
       <div class="card__grid">
          <div class="card__info">
@@ -193,7 +194,8 @@ get_header();
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/card.png" alt="Карта лояльности">
          </div>
       </div>
-   </section>
+   </section> -->
+   
    <section class="location section container">
       <p class="location__text">
          Ищете атмосферную площадку для вашего ивента?
